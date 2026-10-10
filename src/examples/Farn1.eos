@@ -1,0 +1,42 @@
+// EOS 1.5 - Programm
+t:TURTLE
+faktor: real
+f1: real
+
+f1 :=2
+faktor := 3
+t.linienstärkeSetzen(1)
+t.stiftAuf()
+t.zurück(120)
+t.stiftAb()
+farn(8,100)
+
+methode farn (n: integer;laenge: real)
+   
+   
+   wenn n > 0 dann
+      t.vor(laenge*f1/n)
+      
+      t.links(80)
+      farn(n-1,laenge/faktor)
+      t.rechts(80)
+      
+      t.links(5)
+      t.vor(laenge*f1/n)
+      
+      t.rechts(80)
+      farn(n-1,laenge/faktor)
+      t.links(80)
+      
+      t.stiftAuf()
+      t.zurück(laenge*f1/n)
+      t.stiftAb()
+      
+      t.rechts(5)
+      
+      t.stiftAuf()
+      t.zurück(laenge/n)
+      t.stiftAb()
+   *wenn
+   
+ende

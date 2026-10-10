@@ -1,0 +1,16 @@
+// EOS 1.5 - Programm
+k:KREIS
+f:FENSTER
+i:Integer
+Radius:integer
+
+f.zeichne(k)
+i := 0 Radius := 30
+
+wiederhole immer
+   k.MittexSetzen( round(Radius * sin(i)) )
+   k.MitteySetzen( round(Radius * cos(i)) )
+   i := i + 1
+   wenn i = 361 dann i := 0 *wenn
+   
+*wiederhole

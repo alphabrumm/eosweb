@@ -1,0 +1,36 @@
+// EOS 1.5 - Programm
+stern:TURTLE
+f:FENSTER
+r:Real
+
+f.zeichne(Stern)
+f.gitteraus()
+
+Stern.Farbe.setzergb(0,0,255)
+r := stern.Farbe.rot
+Stern.LinienstärkeSetzen(1)
+Stern.Zurück(3)
+wiederhole 74 mal
+   stern.vor(60)
+   Stern.linksdrehen(175)
+   r := r * 0.98
+   Stern.Farbe.rot := round(r)
+   Stern.Farbe.blau := 255 - stern.Farbe.rot
+*wiederhole
+stern.Strecken(0.1)
+
+f.NameSetzen('Stern')
+
+Stern.TurtlesichtbarSetzen(falsch)
+
+//Stern.sichtbar := falsch
+wiederhole immer
+   wiederhole 800 mal
+      stern.drehen(0.2)
+      stern.Strecken(1.01)
+   *wiederhole
+   wiederhole 800 mal
+      stern.drehen(-0.2)
+      stern.Strecken(1/1.01)
+   *wiederhole
+*wiederhole

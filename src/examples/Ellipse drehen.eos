@@ -1,0 +1,18 @@
+// EOS 1.5 - Programm
+e:ELLIPSE
+r:RECHTECK
+g:GRUPPE
+
+e.Mittex := 10
+e.Mittey := 20
+
+e.Radiusx := 30
+e.Füllfarbe := gelb
+e.Drehen(20)
+
+g.kopiere(e)
+g.kopiere(r)
+g.Verschieben(40,40)
+wiederhole immer
+   g.Drehen(1)
+*wiederhole

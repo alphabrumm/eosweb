@@ -1,0 +1,40 @@
+// EOS 1.5 - Programm
+t:TURTLE
+tiefe: integer
+laenge: integer
+
+tiefe := 4
+laenge := 350
+
+t.linienstärkeSetzen(1)
+t.stiftAuf()
+t.rechtsdrehen(150)
+t.vor(laenge / 1.73)
+t.linksdrehen(150)
+t.stiftAb()
+
+koch(tiefe,laenge)
+t.linksdrehen(120)
+koch(tiefe,laenge)
+t.linksdrehen(120)
+koch(tiefe,laenge)
+t.linksdrehen(120)
+
+
+wiederhole immer
+   t.drehen(2)
+*wiederhole
+
+methode koch (n: integer;laenge: real)
+   wenn n > 0 dann
+      koch(n-1,laenge/3)
+      t.rechtsdrehen(60)
+      koch(n-1,laenge/3)
+      t.linksdrehen(120)
+      koch(n-1,laenge/3)
+      t.rechtsdrehen(60)
+      koch(n-1,laenge/3)
+      sonst
+      t.vor(laenge)
+   *wenn
+ende

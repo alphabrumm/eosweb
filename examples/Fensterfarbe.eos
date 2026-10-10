@@ -1,0 +1,8 @@
+// EOS 1.5 - Programm
+f:FENSTER
+r:RECHTECK
+
+f.zeichne(r)
+
+f.HintergrundfarbeSetzen(rot)
+f.GitterfarbeSetzen(grün)

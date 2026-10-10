@@ -1,0 +1,25 @@
+// EOS 1.5 - Programm
+r:RECHTECK
+vr:KREIS
+hr:KREIS
+
+r.Füllfarbe := gelb
+r.links := -50
+r.oben := 40
+r.rechts := 30
+r.unten := 10
+
+vr.Mittex := 10
+vr.Mittey := 10
+vr.Füllfarbe := schwarz
+
+hr.Mittex := -30
+hr.Mittey := 10
+hr.Füllfarbe := schwarz
+
+wiederhole 200 mal
+   vr.Verschieben(1,0)
+   hr.Verschieben(1,0)
+   r.Verschieben(1,0)
+*wiederhole
+

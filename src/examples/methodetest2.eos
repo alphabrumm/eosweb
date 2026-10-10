@@ -1,0 +1,18 @@
+// EOS 1.5 - Programm
+f:FENSTER
+k,l:Integer
+
+
+methode add(var i:integer; j:integer)
+   i := i + j
+   j := 0
+ende
+l := 20
+k := 10
+add(k,l)
+f.NameSetzen(k)
+f.NameSetzen(l)
+
+wiederhole 100 mal
+   k := k + 1
+*wiederhole

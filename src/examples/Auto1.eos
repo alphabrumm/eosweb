@@ -1,0 +1,33 @@
+// EOS 1.5 - Programm
+// Zeichnet ein Auto und lässt es durch 
+// Verschieben der Einzelteile fahren
+r:RECHTECK
+k1,k2:KREIS
+e:ELLIPSE
+f:FENSTER
+
+f.zeichne(r) f.zeichne(k1) f.zeichne(k2) f.zeichne(e)
+
+r.EckenSetzen(-40,30,40,10)
+r.FüllfarbeSetzen(blau)
+
+k1.RadiusSetzen(10)
+k1.MittelpunktSetzen(-20,10)
+k1.FüllfarbeSetzen(schwarz)
+
+k2.RadiusSetzen(10)
+k2.MittelpunktSetzen(20,10)
+k2.FüllfarbeSetzen(schwarz)
+
+e.MittelpunktSetzen(0,30)
+e.RadiusxSetzen(20)
+e.RadiusySetzen(10)
+e.FüllfarbeSetzen(gelb)
+
+wiederhole 150 mal
+   r.verschieben(1,0)
+   k1.verschieben(1,0)
+   k2.verschieben(1,0)
+   e.verschieben(1,0)
+*wiederhole
+

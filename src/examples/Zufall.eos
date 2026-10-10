@@ -1,0 +1,8 @@
+// EOS 1.5 - Programm
+r:RECHTECK
+
+
+
+wiederhole immer
+   r.Verschiebennach(zufall(-100,100),zufall(-100,100))
+*wiederhole

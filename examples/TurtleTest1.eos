@@ -1,0 +1,37 @@
+// EOS 1.5 - Programm
+t:TURTLE
+f:FENSTER
+n:integer
+
+f.zeichne(t)
+t.LinienstärkeSetzen(3)
+t.FarbeSetzen(weiß)
+
+
+n := 72
+Vieleck()
+
+t.FarbeSetzen(gelb)
+
+n := 2
+
+wiederhole 4 mal
+   n := n + 1
+   
+   Vieleck()
+   
+   t.StiftAuf()
+   t.rechtsdrehen(135)
+   t.vor(80)
+   t.linksdrehen(135)
+   t.FarbeSetzen(blau)
+   t.StiftAb()
+*wiederhole
+
+methode Vieleck
+   wiederhole (n) mal
+      t.vor(500/n)
+      t.linksdrehen(360/n)
+   *wiederhole
+ende
+

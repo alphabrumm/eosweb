@@ -1,0 +1,31 @@
+// EOS 1.5 - Programm
+t:Turtle
+k,k1:Kreis
+f:Fenster
+
+
+f.zeichne(t)  f.zeichne(k) f.zeichne(k1)
+
+k.RadiusSetzen(80)
+k.FüllartSetzen(durchsichtig)
+k.MittelpunktSetzen(0,0)
+k.RandstärkeSetzen(6)
+
+k1 := k
+k1.verschieben(40,0)
+
+t.StiftAuf()
+t.vor(80)
+
+t.LinienstärkeSetzen(3)
+t.FarbeSetzen(weiß)
+
+wiederhole immer
+   wenn t.VorPunkt() dann
+      t.vor(0.2)
+      t.rechtsdrehen(2)
+      sonst
+      t.linksdrehen(5)
+   *wenn
+*wiederhole
+

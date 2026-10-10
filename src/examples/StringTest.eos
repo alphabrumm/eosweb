@@ -1,0 +1,7 @@
+// EOS 1.5 - Programm
+s:String
+f:FENSTER
+a,b,c,d,e,g,h,i,j,k,l,m,n,o,p,r:Integer
+
+s := 'Das ist ein ganz langer öadsljdsa öföasdfDas ist ein ganz langer öadsljdsa öföasdfDas ist ein ganz langer öadsljdsa öföasdfjaöf aöf aöf aöfj aöf jaöd fjaöfjd'
+f.NameSetzen(s)

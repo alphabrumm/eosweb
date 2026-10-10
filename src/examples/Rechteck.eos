@@ -1,0 +1,12 @@
+// EOS 1.5 - Programm
+r:RECHTECK
+f:FENSTER
+
+f.zeichne(r)
+r.EckenSetzen(-10,30,60,-50)
+r.FüllfarbeSetzen(gelb)
+
+r.verschieben(30,20)
+wiederhole 30 mal
+   r.drehen(2)
+*wiederhole

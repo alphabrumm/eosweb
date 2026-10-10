@@ -1,0 +1,27 @@
+// EOS 1.5 - Programm
+r1,r2,r3,r4:RECHTECK
+
+
+r1.eckenSetzen(0,50,10,0)
+r2.eckenSetzen(10,50,40,40)
+r3.eckenSetzen(10,30,30,20)
+r4.eckenSetzen(10,10,40,0)
+
+wiederhole 360 mal
+   r1.drehen(1)
+   r2.drehen(1)
+   r3.drehen(1)
+   r4.drehen(1)
+*wiederhole
+
+g:GRUPPE
+g.schlucke(r1)
+g.schlucke(r2)
+g.schlucke(r3)
+g.schlucke(r4)
+
+wiederhole 360 mal
+   g.drehen(1)
+*wiederhole
+
+

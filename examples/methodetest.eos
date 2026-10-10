@@ -1,0 +1,15 @@
+// EOS 1.5 - Programm
+f:FENSTER
+k:Integer
+
+
+methode add(i,j:integer)
+   g:Integer
+   g := i
+   k := g + j
+ende
+
+add(10,20)
+f.NameSetzen(k)
+
+

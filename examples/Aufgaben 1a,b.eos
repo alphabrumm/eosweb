@@ -1,0 +1,11 @@
+// EOS 1.5 - Programm
+b:KREIS
+t:RECHTECK
+
+b.radiusSetzen(10)
+b.mittelpunktSetzen(-50,0)
+
+t.eckenSetzen(50,50,60,-50)
+t.füllfarbeSetzen(grau)
+
+b.verschieben(100,0)

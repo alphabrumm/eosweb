@@ -1,0 +1,13 @@
+// EOS 1.5 - Programm
+r:RECHTECK
+f:FENSTER
+
+f.zeichne(r)
+
+r.FüllfarbeSetzen(gelb)
+r.FüllartSetzen(schraffiert)
+r.LinksObenSetzen(-30,40)
+wiederhole immer
+   r.drehen(1)
+*wiederhole
+

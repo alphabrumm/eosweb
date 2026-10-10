@@ -1,0 +1,11 @@
+// EOS 1.5 - Programm
+r:RECHTECK
+f:FENSTER
+
+f.zeichne(r)
+
+für r
+   rechtsSetzen(30)
+   linksSetzen(-40)
+   verschieben(110,-30)
+*für

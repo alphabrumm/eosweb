@@ -1,0 +1,28 @@
+// EOS 1.5 - Programm
+t:TEXTFELD
+f:FENSTER
+
+f.zeichne(t)
+
+t.ZeileHinzufügen('test')
+t.zeileHinzufügen('Und eine zweite Zeile')
+
+t.AusrichtunghorizontalSetzen(linksbündig)
+t.AusrichtunghorizontalSetzen(rechtsbündig)
+
+t.GroesseAutomatischAnpassenSetzen(falsch)
+t.RechtsSetzen(100)
+t.UntenSetzen(-100)
+t.AusrichtungvertikalSetzen(obenbündig)
+t.AusrichtungvertikalSetzen(untenbündig)
+
+t.DurchsichtigSetzen(wahr)
+
+wiederhole immer
+   wiederhole 100 mal
+      t.verschieben(-1,1)
+   *wiederhole
+   wiederhole 100 mal
+      t.verschieben(1,-1)
+   *wiederhole
+*wiederhole

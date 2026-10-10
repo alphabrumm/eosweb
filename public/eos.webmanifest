@@ -1,0 +1,15 @@
+{
+  "name": "EOS Web – Einfache objektorientierte Sprache",
+  "short_name": "EOS",
+  "lang": "de",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F3F5F9",
+  "theme_color": "#13834F",
+  "icons": [
+    { "src": "eos-icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "eos-icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "eos-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

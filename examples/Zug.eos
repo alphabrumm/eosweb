@@ -1,0 +1,91 @@
+// EOS 1.5 - Programm
+k:KREIS
+r:RECHTECK
+d:DREIECK
+Zug,Schiene:GRUPPE
+f:FENSTER
+
+f.zeichne(zug) f.zeichne(schiene)
+
+// Dreieck vorne
+d.EckenSetzen(50,0,50,-6,60,-6)
+d.FüllfarbeSetzen(blau)
+Zug.kopiere(d)
+
+// Lange Basis
+r.EckenSetzen(-60,5,55,0)
+r.FüllfarbeSetzen (grün)
+Zug.kopiere(r)
+
+r.verschieben(0,50)
+r.rechtsSetzen(-10)
+Zug.kopiere(r)
+
+// Führerhaus
+r.EckenSetzen(-50,50,-10,5)
+r.FüllfarbeSetzen(hellgrün)
+zug.kopiere(r)
+
+r.EckenSetzen(-40,45,-30,30)
+r.FüllfarbeSetzen(weiß)
+zug.kopiere(r)
+
+r.rechtsSetzen(-30)
+r.verschieben(15,0)
+zug.kopiere(r)
+
+// Halbkreis oben
+k.MittelpunktSetzen(10,30)
+k.RadiusSetzen(10)
+k.FüllfarbeSetzen(blau)
+zug.kopiere(k)
+
+// großes blaues Rechteck
+r.EckenSetzen(-10,30,40,5)
+r.FüllfarbeSetzen(blau)
+zug.kopiere(r)
+
+// großes Dreieck vorne
+d.EckenSetzen(40,5,40,30,45,17)
+d.FüllfarbeSetzen(hellblau)
+zug.kopiere(d)
+
+// Schornstein
+r.EckenSetzen(25,50,35,30)
+r.FüllfarbeSetzen(hellblau)
+zug.kopiere(r)
+
+// Großes Rad
+k.MittelpunktSetzen(-40,0)
+k.RadiusSetzen(10)
+k.FüllfarbeSetzen(schwarz)
+Zug.kopiere(k)
+
+// kleine Räder
+k.verschieben(60,-5)
+k.RadiusSetzen(5)
+Zug.kopiere(k)
+k.verschieben(20,0)
+Zug.kopiere(k)
+
+// Schiene
+r.EckenSetzen(-200,-10,200,-15)
+r.FüllfarbeSetzen(hellgrau)
+Schiene.kopiere(r)
+
+r.EckenSetzen(-200,-15,-195,-19)
+r.FüllfarbeSetzen(braun)
+wiederhole 20 mal
+   schiene.kopiere(r)
+   r.verschieben(20,0)
+*wiederhole
+
+Zug.verschieben(-200,0)
+wiederhole 330 mal
+   zug.verschieben(1,0)
+*wiederhole
+
+wiederhole immer
+   zug.drehen(1)
+*wiederhole
+

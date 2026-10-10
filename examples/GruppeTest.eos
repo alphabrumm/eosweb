@@ -1,0 +1,50 @@
+// EOS 1.5 - Programm
+r:RECHTECK
+f:FENSTER
+k:KREIS
+e:ELLIPSE
+s:LINIE
+t:TEXTFELD
+g:GRUPPE
+
+f.zeichne(r)
+
+r.Füllfarbesetzen(gelb)
+
+r.verschieben(-20,20)
+
+// jetzt kommt der Kreis
+f.zeichne(k)
+k.RadiusSetzen(30)
+k.verschieben(20,20)
+f.zeichne(e)
+e.radiusxSetzen(20)
+e.RadiusySetzen(40)
+e.MittelpunktSetzen(50,-100)
+
+f.zeichne(s)
+s.EndPunkteSetzen(-30,-40,30,40)
+
+s.FarbeSetzen(blau)
+s.LinienStärkeSetzen(5)
+
+f.zeichne(t)
+t.verschieben(-70,-50)
+t.zeileHinzufügen('Das ist ein Versuch')
+t.SchriftgrößeSetzen(8)
+
+g.kopiere(r) g.kopiere(k) g.kopiere(e) g.kopiere(s)
+g.kopiere(t)
+
+r.sichtbarSetzen(falsch) k.sichtbarSetzen(falsch)
+e.sichtbarSetzen(falsch) t.sichtbarSetzen(falsch)
+s.sichtbarSetzen(falsch)
+
+f.zeichne(g)
+
+g.verschieben(20,20)
+g.spiegleX()
+g.spiegleY()
+
+g.obenSetzen(150)
+

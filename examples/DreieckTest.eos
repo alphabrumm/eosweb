@@ -1,0 +1,12 @@
+// EOS 1.5 - Programm
+d:DREIECK
+f:FENSTER
+
+f.zeichne(d)
+
+d.EckenSetzen(-100,0,0,100,100,0)
+d.verschieben(20,20)
+
+d.Strecken(0.5)
+
+

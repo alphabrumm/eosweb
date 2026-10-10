@@ -1,0 +1,66 @@
+// EOS 1.5 - Programm
+t:TURTLE
+faktor: real
+f:FENSTER
+
+
+// Das Zeichenfenster einrichten
+f.zeichne(t)
+f.gitteraus()
+f.hintergrundfarbeSetzen(weiß)
+
+// Faktor, um den die Tochteräste gegenüber den Mutterästen
+// verkürzt werden
+faktor := 1.5
+
+// Turtle vorbereiten
+t.linienstärkeSetzen(1)
+t.stiftAuf()
+t.linksdrehen(90)
+t.zurück(140)
+t.stiftAb()
+
+// Los geht's!
+// 1. Parameter: Verschachtelungstiefe
+// 2. Parameter: Länge des aktuellen Astes
+baum(5,100)
+
+
+// Zeichnet den aktuellen Ast und ruft sich selbst für die
+// drei Tochteräte auf
+methode baum (n: integer;laenge: real)
+   
+   t.linienstärkeSetzen(n)          // Dicke des Astes
+   t.vor(laenge)                    // Ast zeichnen
+   
+   wenn n > 0 dann                  // unterste Verschachtelungsebene?
+      
+      t.linksdrehen(80)                   // Nein => 1. Tochterast!
+      baum(n-1,laenge/faktor)
+      t.rechtsdrehen(80)
+      
+      t.linksdrehen(40)                   // 2. Tochterast
+      baum(n-1,laenge/faktor)
+      t.rechtsdrehen(40)
+      
+      t.rechtsdrehen(30)                  // 3. Tochterast
+      baum(n-1,laenge/faktor)
+      t.linksdrehen(30)
+      
+      sonst                        // unterste Verschachtelungsebene
+      
+      t.farbeSetzen(grün)          // Blattfarbe: grün
+      t.linksdrehen(30)
+      wiederhole 6 mal             // kleines Sechseck (Blatt!) zeichnen
+         t.vor(laenge / 5)
+         t.rechtsdrehen(60)
+      *wiederhole
+      t.rechtsdrehen(30)
+      t.farbeSetzen(schwarz)      // Astfarbe: schwarz
+      
+   *wenn
+   
+   t.stiftAuf()                   // Zur letzten Astgabel zurück 
+   t.zurück(laenge)
+   t.stiftAb()
+ende

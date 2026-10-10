@@ -1,0 +1,89 @@
+// EOS 1.5 - Programm
+k1,k2,k3:KREIS      //Rumpf, Bauch, Kopf
+a1,a2:KREIS         //Augen
+d:DREIECK           //Nase
+r1,r2:RECHTECK      //Hut
+m1,m2,m3,m4,m5:KREIS
+Mund:GRUPPE
+s:GRUPPE
+
+
+k1.Radius := 60
+k1.MittelpunktSetzen(0,-60)
+
+k2.Radius := 40
+k2.MittelpunktSetzen(0,-10)
+
+k3.Radius := 30
+k3.MittelpunktSetzen(0,40)
+
+d.EckenSetzen(0,0,0,5,20,0)
+d.Füllfarbe := rot
+d.Verschieben(0,40)
+
+a1.Radius := 3
+a1.MittelpunktSetzen(-10,50)
+a1.Füllfarbe := schwarz
+
+a2.Radius := 3
+a2.MittelpunktSetzen(10,50)
+a2.Füllfarbe := schwarz
+
+r1.EckenSetzen(-20,90,20,70)
+r1.Füllfarbesetzen(schwarz)
+
+r2.EckenSetzen(-30,70,30,65)
+r2.FüllfarbeSetzen(schwarz)
+
+m1.radiusSetzen(4)
+m1.mittelpunktSetzen(-10,30)
+
+m2.radiusSetzen(4)
+m2.mittelpunktSetzen(-5,27)
+
+m3.radiusSetzen(4)
+m3.mittelpunktSetzen(5,27)
+
+m4.radiusSetzen(4)
+m4.mittelpunktSetzen(10,30)
+
+m5.radiusSetzen(4)
+m5.mittelpunktSetzen(0,25)
+
+m1.füllfarbeSetzen(schwarz)
+m2.füllfarbeSetzen(schwarz)
+m3.füllfarbeSetzen(schwarz)
+m4.füllfarbeSetzen(schwarz)
+m5.füllfarbeSetzen(schwarz)
+
+s.schlucke(k1)
+s.schlucke(k2)
+s.schlucke(k3)
+s.schlucke(a1)
+s.schlucke(a2)
+s.schlucke(d)
+s.schlucke(r1)
+s.schlucke(r2)
+Mund.schlucke(m1)
+Mund.schlucke(m2)
+Mund.schlucke(m3)
+Mund.schlucke(m4)
+Mund.schlucke(m5)
+s.schlucke(Mund)
+
+wiederhole 360 mal
+   s.drehen(1)
+*wiederhole
+
+Mund.spiegleY()
+wiederhole 360 mal
+   s.drehen(-1)
+   s.strecken(0.99)
+*wiederhole
+
+wiederhole 360 mal
+   s.drehen(-1)
+   s.strecken(1/0.99)
+*wiederhole
+Mund.spiegleY()
+
