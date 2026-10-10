@@ -37,11 +37,11 @@ export class VariablesView {
                 if (a.value instanceof Farbe) {
                     const f = a.value;
                     const s = `${f.r.value}, ${f.g.value}, ${f.b.value}`;
-                    items.push(`<span class="eo-attr"><b>${escapeHtml(a.name)}</b> = <span class="eo-swatch" style="background:${cssColor(f.color)}"></span>${this.val(prefix + "." + a.name, s)}</span>`);
+                    items.push(`<span class="eo-attr"><b>${escapeHtml(a.name)}</b><span class="eo-attr-val"><span class="eo-swatch" style="background:${cssColor(f.color)}"></span>${this.val(prefix + "." + a.name, s)}</span></span>`);
                 }
                 continue;
             }
-            items.push(`<span class="eo-attr"><b>${escapeHtml(a.name)}</b> = ${this.val(prefix + "." + a.name, valueToString(a.value, { vt: a.vt, ci: a.ci }))}</span>`);
+            items.push(`<span class="eo-attr"><b>${escapeHtml(a.name)}</b><span class="eo-attr-val">${this.val(prefix + "." + a.name, valueToString(a.value, { vt: a.vt, ci: a.ci }))}</span></span>`);
         }
         return items.join("");
     }

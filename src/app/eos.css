@@ -1159,3 +1159,20 @@ html.keyboard-open.editor-focused .jp-bottomnav { display: none; }
 .jp-topbar { min-width: 0; overflow: hidden; }
 .jp-project { flex: 0 1 auto; }
 @media (max-width: 430px) { .eo-speed-label { display: none; } }
+
+/* Lehrkraftansicht (?lehrkraft) */
+.jp-app:not(.is-teacher) .eo-teacher-only { display: none; }
+.eo-teacher-off { margin-top: 10px; }
+.eo-teacher-off .jp-icon { color: var(--ink-2) !important; }
+
+/* Variablen: Attribute untereinander, Werte bündig */
+.eo-attrs {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 1px 12px;
+    margin-top: 6px;
+    font-size: 13.5px;
+}
+.eo-attr { display: contents; }
+.eo-attr b { font-weight: 600; color: var(--syn-field); }
+.eo-attr-val { min-width: 0; overflow-wrap: anywhere; }

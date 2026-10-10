@@ -23,6 +23,13 @@ Bedienung und Gestaltung entsprechen JPad.
 - Offline nutzbar nach „Zum Home-Bildschirm“ (PWA); Zeichnung als PNG sichern;
   Koordinaten anzeigen durch Antippen der Zeichenfläche
 
+## Lehrkraftansicht
+
+Schülerinnen und Schüler sehen keine Beispielprogramme. Lehrkräfte öffnen die App einmal mit
+`?lehrkraft` am Ende der Adresse (z. B. `https://alphabrumm.github.io/eosweb/?lehrkraft`).
+Das Gerät merkt sich die Einstellung; im Menü lässt sie sich wieder beenden (oder mit `?lehrkraft=0`).
+Die Lehrkraftansicht ist eine Komfortfunktion, kein Zugriffsschutz.
+
 ## Bauen
 
 ```

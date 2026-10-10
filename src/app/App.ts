@@ -80,7 +80,22 @@ export class App {
     // Start
     // =====================================================================
 
+    /** Lehrkraftansicht: einmal mit ?lehrkraft (oder #lehrkraft) öffnen, danach merkt sich das Gerät die Einstellung. */
+    private applyTeacherMode() {
+        const url = new URL(location.href);
+        const q = url.searchParams.get("lehrkraft") ?? (/^#lehrkraft(=|$)/.test(url.hash) ? url.hash.replace(/^#lehrkraft=?/, "") : null);
+        if (q != null) {
+            if (q == "0" || q == "aus" || q == "nein") { try { localStorage.removeItem("eos.lehrkraft"); } catch (e) { } }
+            else lsSet("eos.lehrkraft", "1");
+            url.searchParams.delete("lehrkraft");
+            if (/^#lehrkraft/.test(url.hash)) url.hash = "";
+            try { history.replaceState(null, "", url.toString()); } catch (e) { }
+        }
+        this.root.classList.toggle("is-teacher", ls("eos.lehrkraft", "0") == "1");
+    }
+
     start() {
+        this.applyTeacherMode();
         this.applyTheme(this.getThemeChoice());
         matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => this.applyTheme(this.getThemeChoice()));
         this.setupTextMetrics();
@@ -224,11 +239,13 @@ export class App {
                 </div>
                 <ul class="jp-projectlist" data-ref="projectList"></ul>
 
+                <div class="eo-teacher-only">
                 <h2>Beispiele</h2>
                 <div class="eo-examples">
                 ${groups.map((g, gi) => `<details class="eo-example-group"><summary>${icon("book")}<span>${escapeHtml(g.title)}</span></summary>
                     <div class="jp-menu-actions">${g.items.map((e, i) => `<button data-example="${gi}:${i}"><span>${escapeHtml(e.title)}</span></button>`).join("")}</div>
                 </details>`).join("")}
+                </div>
                 </div>
 
                 <h2>Darstellung</h2>
@@ -246,9 +263,14 @@ export class App {
                     </div>
                 </div>
 
+                <div class="eo-teacher-only">
                 <h2>Für Lehrkräfte</h2>
                 <label class="eo-check"><input type="checkbox" data-ref="noAttrAssign">
                     <span>Zuweisungen an Attribute verbieten (nur Setzen-Methoden erlaubt, z.&nbsp;B. <code>r.linksSetzen(10)</code> statt <code>r.links := 10</code>)</span></label>
+                <div class="jp-menu-actions eo-teacher-off">
+                    <button data-ref="teacherOffBtn">${icon("close")}<span>Lehrkraftansicht auf diesem Gerät beenden</span></button>
+                </div>
+                </div>
 
                 <h2>Über EOS Web</h2>
                 <p class="jp-about">EOS – die <b>E</b>infache <b>O</b>bjektorientierte <b>S</b>prache – ist eine Lernsprache mit
@@ -302,6 +324,11 @@ export class App {
             if (files.length) this.importFiles(files);
         });
         this.el.saveFileBtn.addEventListener("click", () => { this.closeDrawer(); this.exportProject(); });
+        this.el.teacherOffBtn.addEventListener("click", () => {
+            try { localStorage.removeItem("eos.lehrkraft"); } catch (e) { }
+            this.root.classList.remove("is-teacher");
+            this.toast("Lehrkraftansicht beendet. Wieder einschalten: Adresse mit ?lehrkraft öffnen.");
+        });
         this.el.helpMenuBtn.addEventListener("click", () => { this.closeDrawer(); this.showHelp(); });
         this.root.querySelectorAll<HTMLElement>("[data-example]").forEach(b => b.addEventListener("click", () => {
             const [g, i] = b.dataset.example!.split(":").map(Number);
