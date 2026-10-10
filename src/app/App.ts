@@ -24,15 +24,7 @@ type ThemeChoice = "auto" | "light" | "dark";
 
 declare var APP_VERSION: string;
 
-export const STARTER = `// EOS 1.5 - Programm
-// Willkommen bei EOS! Tippe oben auf ▶, um das Programm zu starten.
-k: KREIS
-k.radiusSetzen(30)
-k.füllfarbeSetzen(gelb)
-wiederhole 100 mal
-   k.verschieben(1, 0)
-*wiederhole
-`;
+export const STARTER = NEW_PROGRAM;
 
 function ls(key: string, def: string): string {
     try { return localStorage.getItem(key) ?? def; } catch (e) { return def; }
@@ -657,7 +649,7 @@ export class App {
         this.loadProject(p);
         this.closeDrawer();
         this.setView("code");
-        setTimeout(() => { this.editor.revealLine(2, 1, true); this.editor.focus(); }, 80);
+        setTimeout(() => { this.editor.revealLine(4, 1, true); this.editor.focus(); }, 80);
     }
 
     openExample(title: string, text: string) {
