@@ -18,7 +18,7 @@ const LIST_KEY = "eos.projects";
 const CURRENT_KEY = "eos.current";
 const TEXT_PREFIX = "eos.text.";
 
-export const NEW_PROGRAM = "k: KREIS\nk.radiusSetzen(30)\nk.füllfarbeSetzen(gelb)\n";
+export const NEW_PROGRAM = "k: KREIS\nk.radius := 30\nk.füllfarbe := gelb\n";
 
 function lsGet(key: string): string | null {
     try { return localStorage.getItem(key); } catch (e) { return null; }
