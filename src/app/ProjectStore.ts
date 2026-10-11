@@ -1,5 +1,5 @@
 /**
- * Projekte von EOS Web: Ein Projekt ist ein EOS-Programm (wie eine .eos-Datei).
+ * Projekte von wEOS: Ein Projekt ist ein EOS-Programm (wie eine .eos-Datei).
  * Alles liegt im Speicher des Browsers (localStorage) – ohne Login, ohne Server.
  * Austausch über .eos-Dateien im Format des Original-EOS (Windows-1252, CRLF).
  */

@@ -15,11 +15,11 @@ function boot() {
     } catch (e: any) {
         console.error(e);
         root.removeAttribute("aria-busy");
-        root.innerHTML = `<div class="jp-fatal"><h1>EOS Web konnte nicht starten</h1>
+        root.innerHTML = `<div class="jp-fatal"><h1>wEOS konnte nicht starten</h1>
             <p>Lade die Seite neu. Wenn das nicht hilft, nutze einen aktuellen Browser (Safari ab iOS 16, Chrome, Edge, Firefox).</p>
             <pre>${String(e?.message || e).replace(/</g, "&lt;")}</pre></div>`;
     }
-    console.log("EOS Web " + APP_VERSION);
+    console.log("wEOS " + APP_VERSION);
 }
 
 if (document.readyState == "loading") document.addEventListener("DOMContentLoaded", boot);

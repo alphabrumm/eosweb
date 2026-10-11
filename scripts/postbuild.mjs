@@ -2,7 +2,7 @@
 import { writeFileSync } from "fs";
 
 const out = "dist";
-writeFileSync(`${out}/.htaccess`, `# EOS Web: Einstellungen für Apache-Webserver
+writeFileSync(`${out}/.htaccess`, `# wEOS: Einstellungen für Apache-Webserver
 AddType application/manifest+json .webmanifest
 AddType text/javascript .js .mjs
 
@@ -22,4 +22,4 @@ AddType text/javascript .js .mjs
   </FilesMatch>
 </IfModule>
 `);
-console.log("EOS Web: dist ist fertig zum Hochladen.");
+console.log("wEOS: dist ist fertig zum Hochladen.");

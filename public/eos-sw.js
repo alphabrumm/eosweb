@@ -1,4 +1,4 @@
-/* EOS Web Service Worker: macht die App nach dem ersten Laden offline nutzbar.
+/* wEOS Service Worker: macht die App nach dem ersten Laden offline nutzbar.
    Strategie: erst Netz, bei fehlender Verbindung aus dem Zwischenspeicher. */
 const CACHE = "eos-v1";
 

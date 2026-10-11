@@ -1,12 +1,12 @@
-# EOS Web
+# wEOS
 
 **EOS – Einfache objektorientierte Sprache** als Web-App für iPad, Tablet und Browser.
 EOS ist eine Lernsprache mit Entwicklungsumgebung von [Martin Pabst](https://www.pabst-software.de/doku.php?id=programme:eos:start)
 für den Einstieg in die objektorientierte Programmierung ab Jahrgangsstufe 6.
-EOS Web bildet Sprache, Klassen und Ablaufsteuerung nach dem Delphi-Quelltext von EOS 1.5.9 in TypeScript nach.
+wEOS bildet Sprache, Klassen und Ablaufsteuerung nach dem Delphi-Quelltext von EOS 1.5.9 in TypeScript nach.
 Bedienung und Gestaltung entsprechen JPad.
 
-## Was EOS Web kann
+## Was wEOS kann
 
 - Alle Sprachelemente von EOS: Deklarationen, Zuweisungen, `wiederhole … mal / immer / solange / bis`,
   `solange … tue`, `wenn … dann … sonst`, `für`, eigene Methoden mit Wert- und `var`-Parametern

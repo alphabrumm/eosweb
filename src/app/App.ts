@@ -1,5 +1,5 @@
 /**
- * Oberfläche von EOS Web: Kopfzeile, Editor, Grafik, Variablen, Fehler, Menü.
+ * Oberfläche von wEOS: Kopfzeile, Editor, Grafik, Variablen, Fehler, Menü.
  * Aufbau und Gestaltung wie JPad, damit sich beide Apps gleich bedienen lassen.
  */
 
@@ -218,7 +218,7 @@ export class App {
         <div class="jp-drawer-backdrop" data-ref="drawerBackdrop"></div>
         <aside class="jp-drawer" data-ref="drawer" aria-label="Menü" inert>
             <div class="jp-drawer-head">
-                <div class="jp-brand"><span class="jp-brand-mark">E</span>EOS</div>
+                <div class="jp-brand"><span class="jp-brand-mark">E</span>wEOS</div>
                 <button class="jp-iconbtn" data-ref="drawerClose" aria-label="Menü schließen">${icon("close")}</button>
             </div>
             <div class="jp-drawer-body">
@@ -264,12 +264,12 @@ export class App {
                 </div>
                 </div>
 
-                <h2>Über EOS Web</h2>
+                <h2>Über wEOS</h2>
                 <p class="jp-about">EOS – die <b>E</b>infache <b>O</b>bjektorientierte <b>S</b>prache – ist eine Lernsprache mit
                 Entwicklungsumgebung von <a href="https://www.pabst-software.de/doku.php?id=programme:eos:start" target="_blank" rel="noopener">Martin Pabst</a>.
-                EOS Web bildet Sprache und Klassen nach dem Quelltext von EOS 1.5.9 im Browser nach, damit EOS auch auf dem iPad läuft.
+                wEOS bildet Sprache und Klassen nach dem Quelltext von EOS 1.5.9 im Browser nach, damit EOS auch auf dem iPad läuft.
                 Deine Programme bleiben auf diesem Gerät, bis du sie als .eos-Datei sicherst. Diese Dateien öffnet auch das Original-EOS.</p>
-                <p class="jp-hint">Tipp: Teilen → „Zum Home-Bildschirm“ – dann läuft EOS Web auch offline, und Safari löscht deine Programme nicht.</p>
+                <p class="jp-hint">Tipp: Teilen → „Zum Home-Bildschirm“ – dann läuft wEOS auch offline, und Safari löscht deine Programme nicht.</p>
                 <p class="jp-version">Version ${typeof APP_VERSION != "undefined" ? APP_VERSION : ""}</p>
             </div>
         </aside>
