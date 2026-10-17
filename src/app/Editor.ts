@@ -5,8 +5,7 @@
 
 import { EditorState, Extension, StateEffect, StateField, Compartment, RangeSet, EditorSelection, Transaction } from "@codemirror/state";
 import {
-    EditorView, keymap, lineNumbers, highlightActiveLine, highlightActiveLineGutter, Decoration, DecorationSet,
-    highlightSpecialChars, dropCursor, GutterMarker, gutter
+    EditorView, keymap, lineNumbers, highlightActiveLineGutter, Decoration, DecorationSet, highlightSpecialChars, dropCursor, GutterMarker, gutter, layer, RectangleMarker
 } from "@codemirror/view";
 import { defaultKeymap, history, historyKeymap, indentWithTab, undo, redo, undoDepth, redoDepth, toggleComment } from "@codemirror/commands";
 import { indentOnInput, bracketMatching, indentUnit } from "@codemirror/language";
@@ -107,6 +106,33 @@ const fixQuotes = EditorState.transactionFilter.of(tr => {
     return { changes, selection: tr.selection, scrollIntoView: tr.scrollIntoView, userEvent: "input.type" };
 });
 
+/**
+ * Hervorhebung der Cursorzeile als eigene Ebene hinter dem Text.
+ *
+ * CodeMirrors highlightActiveLine() setzt die Klasse „cm-activeLine“ direkt an den Zeilen im
+ * bearbeitbaren Bereich. Auf iPhone/iPad passiert das beim ersten Tipp eines Doppeltipps – Safari
+ * verliert dadurch den Ankerpunkt der Wortauswahl und markiert alles vom Textanfang bis zum Wort
+ * (außer in der Zeile, in der der Cursor schon stand). Diese Ebene liegt außerhalb des
+ * contenteditable-Elements und verändert die Zeilen nicht.
+ */
+const activeLineLayer = layer({
+    above: false,
+    class: "pad-activeline-layer",
+    update: (update) => update.selectionSet || update.docChanged || update.viewportChanged || update.geometryChanged || update.focusChanged,
+    markers: (view) => {
+        const sel = view.state.selection.main;
+        if (!sel.empty) return [];
+        const block = view.lineBlockAt(sel.head);
+        const scroller = view.scrollDOM.getBoundingClientRect();
+        const content = view.contentDOM.getBoundingClientRect();
+        const baseLeft = scroller.left - view.scrollDOM.scrollLeft * view.scaleX;
+        const baseTop = scroller.top - view.scrollDOM.scrollTop * view.scaleY;
+        const top = (view.documentTop + block.top * view.scaleY - baseTop) / view.scaleY;
+        const left = (content.left - baseLeft) / view.scaleX;
+        return [new RectangleMarker("pad-activeline", left, top, content.width / view.scaleX, block.height)];
+    }
+});
+
 export type EditorListener = {
     onDocChanged?: () => void;
     onCursorActivity?: () => void;
@@ -152,7 +178,7 @@ export class EosEditor {
                     : []
             }),
             closeBrackets(),
-            highlightActiveLine(),
+            activeLineLayer,
             highlightSelectionMatches(),
             ...eosLanguageSupport(),
             lineMarkField,

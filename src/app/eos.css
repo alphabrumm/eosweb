@@ -365,7 +365,7 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 }
 
 .jp-editor .cm-lineNumbers .cm-gutterElement { padding: 0 6px 0 10px; min-width: 34px; }
-.jp-editor .cm-activeLine { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.jp-editor .pad-activeline { background: color-mix(in srgb, var(--accent) 6%, transparent); }
 .jp-editor .cm-activeLineGutter { background: transparent; color: var(--ink); font-weight: 600; }
 .jp-editor .cm-cursor { border-left: 2px solid var(--accent); }
 .jp-editor .cm-selectionBackground, .jp-editor .cm-content ::selection { background: color-mix(in srgb, var(--accent) 28%, transparent) !important; }
