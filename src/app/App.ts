@@ -164,6 +164,7 @@ export class App {
             </button>
             <div class="jp-topbar-spacer"></div>
             <div class="jp-toolgroup jp-edit-tools">
+                <button class="jp-iconbtn" data-ref="copyBtn" aria-label="Code dieses Programms kopieren" title="Code dieses Programms kopieren">${icon("copyFile")}</button>
                 <button class="jp-iconbtn" data-ref="undo" aria-label="Rückgängig" title="Rückgängig">${icon("undo")}</button>
                 <button class="jp-iconbtn" data-ref="redo" aria-label="Wiederholen" title="Wiederholen">${icon("redo")}</button>
                 <button class="jp-iconbtn jp-wide-only" data-ref="formatBtn" aria-label="Einrückung ordnen" title="Einrückung ordnen">${icon("format")}</button>
@@ -283,6 +284,7 @@ export class App {
         this.el.drawerClose.addEventListener("click", () => this.closeDrawer());
         this.el.drawerBackdrop.addEventListener("click", () => this.closeDrawer());
         this.el.projectBtn.addEventListener("click", () => this.renameProject());
+        this.el.copyBtn.addEventListener("click", () => this.copyCode());
         this.el.undo.addEventListener("click", () => this.editor.undo());
         this.el.redo.addEventListener("click", () => this.editor.redo());
         this.el.formatBtn.addEventListener("click", () => this.formatCode());
@@ -803,6 +805,14 @@ export class App {
     // Hinweise
     // =====================================================================
 
+    /** Kopiert den Code des Programms in die Zwischenablage (wie in JPad). */
+    async copyCode() {
+        const text = this.editor.getText().replace(/\s+$/, "") + "\n";
+        const ok = await copyToClipboard(text);
+        if (!ok) this.toast("Kopieren hat nicht geklappt. Markiere den Code im Editor und kopiere ihn von Hand.");
+        else this.toast(`Code des Programms „${this.project.name}“ in die Zwischenablage kopiert. Füge den Code woanders wieder ein (z.B. bei einer Abgabe in einem Lernkurs).`, "copyFile");
+    }
+
     private toastTimer: any;
     toast(text: string, iconName: string = "info") {
         let t = this.root.querySelector<HTMLElement>(".jp-toast");
@@ -817,4 +827,25 @@ export class App {
         clearTimeout(this.toastTimer);
         this.toastTimer = setTimeout(() => t!.classList.remove("is-visible"), text.length > 60 ? 5000 : 3200);
     }
+}
+
+/** Zwischenablage mit Rückfall für ältere Browser (wie in JPad). */
+async function copyToClipboard(text: string): Promise<boolean> {
+    try {
+        await navigator.clipboard.writeText(text);
+        return true;
+    } catch (e) { /* weiter mit dem Rückfall */ }
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    ta.style.fontSize = "16px";
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, text.length);
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { }
+    ta.remove();
+    return ok;
 }
